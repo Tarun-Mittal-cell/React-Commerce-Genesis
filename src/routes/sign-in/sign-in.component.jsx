@@ -5,7 +5,6 @@ const SignIn = () => {
         console.log(response);
     }
 
-
     return (
         <div>
             <h1>Sign In Page</h1>
