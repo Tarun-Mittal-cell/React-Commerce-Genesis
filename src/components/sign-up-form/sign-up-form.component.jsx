@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { createAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils';
+import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utils/firebase/firebase.utils';
 
 const defaultFormFields = {
     displayName: '',
@@ -27,8 +27,10 @@ const SignUpForm = () => {
                 password
                 );
 
+                await createUserDocumentFromAuth(user, { displayName });
+
         } catch(error) {
-            console.log('user created encountered an error', error);
+            console.log('user creation encountered an error', error);
         }
     };
 
