@@ -22,8 +22,11 @@ const SignUpForm = () => {
         }
 
         try {
-            const response = await createAuthUserWithEmailAndPassword(email, password);
-            console.log(response);
+            const { user } = await createAuthUserWithEmailAndPassword(
+                email, 
+                password
+                );
+
         } catch(error) {
             console.log('user created encountered an error', error);
         }
